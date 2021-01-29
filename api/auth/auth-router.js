@@ -17,9 +17,9 @@ router.post("/register", async (req, res) => {
       credentials.password = hash;
       const newUser = await Users.add(credentials);
 
-      res.status(201).json({ message: "Success!", newUser });
+      res.status(201).json(newUser);
     } else {
-      res.status(400).json({ message: "username and password required" });
+      res.status(400).json("username and password required");
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -40,10 +40,10 @@ router.post("/login", async (req, res, next) => {
           .status(200)
           .json({ message: `Welcome!, ${allegedUser.username}`, token });
       } else {
-        res.status(401).json({ message: "Invalid Credentials" });
+        res.status(401).json("invalid Credentials");
       }
     } else {
-      res.status(400).json({ message: "username and password are required" });
+      res.status(400).json("username and password are required");
     }
   } catch (err) {
     next();
