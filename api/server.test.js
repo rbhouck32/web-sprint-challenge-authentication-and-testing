@@ -29,8 +29,21 @@ describe("[POST] /api/auth/register", () => {
     res = await request(server).post("/api/auth/register").send(sean);
     expect(res.body).toMatchObject({ id: 2, ...sean });
   });
+
+  // it("should return a JSON object from the index route", async () => {
+  //   const expectedBody = {
+  //     id: 1,
+  //     username: "Batman",
+  //     password: "$2a$09$RJfIwnTolHAqcD6.lSSQoeUYtMw0TRsZcYUC9N7qmgesgbaGLnSly",
+  //   };
+
+  //   const response = await request(server).post("/api/auth/register");
+
+  //   expect(response.body).toEqual(expectedBody);
+  // });
 });
 
+// tests for [GET] - for /api/users
 describe("[GET] /api/users", () => {
   it("should return an OK status code from the index route", async () => {
     const expectedStatusCode = 200;
