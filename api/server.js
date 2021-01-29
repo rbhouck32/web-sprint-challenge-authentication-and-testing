@@ -18,4 +18,8 @@ server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/jokes", restrict, jokesRouter);
 
+// server.get("/", (req, res) => {
+//   res.status(200).json({ api: "running" });
+// });
+
 module.exports = server;
